@@ -25,7 +25,7 @@
         </Grid.ColumnDefinitions>
         
         <DockPanel Visibility="Visible"></DockPanel>
-            <ToolBar Grid.ColumnSpan="2" Grid.Row="1" DockPanel.Dock="Top" Background="#444F5A" >
+            <ToolBar Grid.ColumnSpan="2" Width="850" Grid.Row="1" DockPanel.Dock="Top" Background="#444F5A" >
                 <ToggleButton Command="EditingCommands.ToggleBold" Name="btnBold" Width="30" Height="30" Foreground="White">𝐁</ToggleButton>
                 <ToggleButton Command="EditingCommands.ToggleItalic" Name="btnItalic" Width="30" Height="30" Foreground="White">𝐼</ToggleButton>
                 <ToggleButton Command="EditingCommands.ToggleUnderline" Name="btnUnderline" Width="30" Height="30" Foreground="White">⎁</ToggleButton>
@@ -40,9 +40,9 @@
                         <ToggleButton Command="ApplicationCommands.Copy" ToolTip="Копировать" Width="75" Height="30" Foreground="#2A363B">Копировать</ToggleButton>
                         <ToggleButton Command="ApplicationCommands.Cut" ToolTip="Вырезать" Width="60" Height="30" Foreground="#2A363B">Вырезать</ToggleButton>
                     </ToolBar>
-                <Separator />
+                <Separator/>
                     <xctk:ColorPicker Width="50" Name="ClrPcker_Background" Foreground="Black" SelectedColorChanged="ClrPcker_Background_SelectedColorChanged" Background="#2A363B" ToolTip="Цвет"></xctk:ColorPicker>
-                <Separator />
+                <Separator/>
                 <ToggleButton Command="ApplicationCommands.SelectAll" Foreground="White" Width="60" Height="30">Выделить всё</ToggleButton>
                     
                 <Separator />
@@ -67,7 +67,7 @@
             <MenuItem Header="Файл" Width="59" Height="23" Foreground="#444F5A">
                 <MenuItem Header="Открыть" Background="#95E1D3" Foreground="#444F5A" BorderThickness="0"  Command="ApplicationCommands.Open"/>
                 <MenuItem Header="Сохранить" Background="#95E1D3" Foreground="#444F5A" BorderThickness="0" Command="ApplicationCommands.Save"/>
-                <MenuItem Header="Сохранить как" Background="#95E1D3" Foreground="#444F5A" BorderThickness="0"/>
+                <MenuItem Header="Сохранить выйти" Background="#95E1D3" Foreground="#444F5A" BorderThickness="0" Click="SaveEX"/>
                 <Separator Background="#2A363B" Margin="-48,0,0,0"/>
                 <MenuItem Header="Выход" Background="#95E1D3" Foreground="#444F5A" BorderThickness="0" Command="Close"/>
             </MenuItem>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -51,6 +52,30 @@ namespace WPF_Text_editor
                 cmbFontSize.Text = temp.ToString();
             }
             catch (System.Exception) { } 
+        }
+
+        private void SaveEX(object sender, RoutedEventArgs routedEventArgs)
+        {
+             TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
+            try
+            {
+                if (path != "") 
+                {
+                    FileStream fileStream = new FileStream(path, FileMode.Create);
+                    range.Save(fileStream, DataFormats.Rtf);
+                    return;
+                }
+                SaveFileDialog dlg = new SaveFileDialog();
+                dlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
+                if (dlg.ShowDialog() == true) 
+                {
+                    FileStream fileStream = new FileStream(dlg.FileName, FileMode.Create);
+                    range.Save(fileStream, DataFormats.Rtf);
+                }
+            }
+            catch (System.Exception) { }
+            
+            Process.GetCurrentProcess().Kill();
         }
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e) //Сохраниене файла
         {
